@@ -20,7 +20,8 @@
     "baseUrl": ".",
     "paths": {
       "@kc-ui/*": ["packages/*/src"]
-    }
+    },
+    "types": ["vitest/globals", "@testing-library/jest-dom"]
   },
   "include": [
     "packages/*/src/**/*"

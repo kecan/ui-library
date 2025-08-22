@@ -1,0 +1,127 @@
+.autocomplete {
+  position: relative;
+  display: inline-block;
+  width: 100%;
+}
+
+.autocomplete__input-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.autocomplete__input {
+  width: 100%;
+  border: 1px solid #d9d9d9;
+  border-radius: 4px;
+  background-color: #fff;
+  color: rgba(0, 0, 0, 0.85);
+  font-family: inherit;
+  font-size: 14px;
+  line-height: 1.5;
+  transition: all 0.2s ease;
+  outline: none;
+}
+
+.autocomplete__input:focus {
+  border-color: #007bff;
+  box-shadow: 0 0 0 2px rgba(0, 123, 255, 0.25);
+}
+
+.autocomplete__input:hover:not(:disabled) {
+  border-color: #007bff;
+}
+
+.autocomplete__input--disabled {
+  background-color: #f5f5f5;
+  color: rgba(0, 0, 0, 0.25);
+  cursor: not-allowed;
+}
+
+.autocomplete--small .autocomplete__input {
+  padding: 4px 8px;
+  font-size: 12px;
+}
+
+.autocomplete--medium .autocomplete__input {
+  padding: 8px 12px;
+  font-size: 14px;
+}
+
+.autocomplete--large .autocomplete__input {
+  padding: 12px 16px;
+  font-size: 16px;
+}
+
+.autocomplete__clear {
+  position: absolute;
+  right: 8px;
+  top: 50%;
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  color: rgba(0, 0, 0, 0.45);
+  cursor: pointer;
+  font-size: 16px;
+  line-height: 1;
+  padding: 0;
+  width: 16px;
+  height: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 2px;
+  transition: color 0.2s ease;
+}
+
+.autocomplete__clear:hover {
+  color: rgba(0, 0, 0, 0.65);
+  background-color: rgba(0, 0, 0, 0.06);
+}
+
+.autocomplete__dropdown {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  margin-top: 4px;
+  background: #fff;
+  border: 1px solid #d9d9d9;
+  border-radius: 4px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+  overflow-y: auto;
+}
+
+.autocomplete__option {
+  padding: 8px 12px;
+  cursor: pointer;
+  font-size: 14px;
+  line-height: 1.5;
+  color: rgba(0, 0, 0, 0.85);
+  transition: background-color 0.2s ease;
+  border-bottom: 1px solid #f0f0f0;
+}
+
+.autocomplete__option:last-child {
+  border-bottom: none;
+}
+
+.autocomplete__option:hover,
+.autocomplete__option--highlighted {
+  background-color: #f5f5f5;
+}
+
+.autocomplete__option:active {
+  background-color: #e6f7ff;
+}
+
+.autocomplete--small .autocomplete__option {
+  padding: 6px 8px;
+  font-size: 12px;
+}
+
+.autocomplete--large .autocomplete__option {
+  padding: 10px 16px;
+  font-size: 16px;
+}
