@@ -1,7 +1,15 @@
 module.exports = {
   stories: [
-    '../stories/**/*.stories.@(js|jsx|mjs|ts|tsx)',
-    '../../../packages/components/**/*.stories.@(js|jsx|mjs|ts|tsx)',
+    {
+      directory: '../stories',
+      files: '*.stories.@(js|jsx|mjs|ts|tsx)',
+      titlePrefix: 'Docs',
+    },
+    {
+      directory: '../../../packages/components/src',
+      files: '**/*.stories.@(js|jsx|mjs|ts|tsx)',
+      titlePrefix: 'Components',
+    },
   ],
   addons: ['@storybook/addon-essentials'],
   framework: {
@@ -10,5 +18,8 @@ module.exports = {
   },
   docs: {
     autodocs: 'tag',
+  },
+  core: {
+    disableTelemetry: true,
   },
 }
