@@ -2,8 +2,6 @@ import resolve from '@rollup/plugin-node-resolve'
 import commonjs from '@rollup/plugin-commonjs'
 import typescript from '@rollup/plugin-typescript'
 import postcss from 'rollup-plugin-postcss'
-import { terser } from 'rollup-plugin-terser'
-import peerDepsExternal from 'rollup-plugin-peer-deps-external'
 
 export default {
   input: 'src/index.ts',
@@ -19,19 +17,22 @@ export default {
       sourcemap: true,
     },
   ],
+  external: ['react', 'react-dom'],
   plugins: [
-    peerDepsExternal(),
     resolve({
       browser: true,
     }),
     commonjs(),
     typescript({
       tsconfig: './tsconfig.json',
+      declaration: true,
+      declarationDir: 'dist',
+      exclude: ['**/*.test.*', '**/*.stories.*'],
     }),
     postcss({
-      extract: true,
+      extract: 'index.css',
       minimize: true,
+      sourceMap: true,
     }),
-    terser(),
   ],
 }

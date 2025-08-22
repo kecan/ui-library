@@ -1,0 +1,9 @@
+{
+  "buildCommand": "pnpm build-storybook",
+  "outputDirectory": "apps/storybook/storybook-static",
+  "installCommand": "pnpm install --frozen-lockfile",
+  "framework": null,
+  "github": {
+    "silent": true
+  }
+}
