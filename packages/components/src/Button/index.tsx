@@ -14,7 +14,7 @@ const Button: React.FC<ButtonProps> = ({
   size = 'medium',
   disabled = false,
   onClick,
-  children
+  children,
 }) => {
   return (
     <button

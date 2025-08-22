@@ -31,7 +31,7 @@ const AutoComplete: React.FC<AutoCompleteProps> = ({
   onSelect,
   onChange,
   onSearch,
-  filterOption
+  filterOption,
 }) => {
   const [inputValue, setInputValue] = useState(value)
   const [isOpen, setIsOpen] = useState(false)
@@ -39,12 +39,17 @@ const AutoComplete: React.FC<AutoCompleteProps> = ({
   const inputRef = useRef<HTMLInputElement>(null)
   const dropdownRef = useRef<HTMLDivElement>(null)
 
-  const defaultFilterOption = (inputValue: string, option: AutoCompleteOption) => {
+  const defaultFilterOption = (
+    inputValue: string,
+    option: AutoCompleteOption
+  ) => {
     return option.label.toLowerCase().includes(inputValue.toLowerCase())
   }
 
-  const filteredOptions = options.filter(option => 
-    filterOption ? filterOption(inputValue, option) : defaultFilterOption(inputValue, option)
+  const filteredOptions = options.filter(option =>
+    filterOption
+      ? filterOption(inputValue, option)
+      : defaultFilterOption(inputValue, option)
   )
 
   useEffect(() => {
@@ -53,7 +58,10 @@ const AutoComplete: React.FC<AutoCompleteProps> = ({
 
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
-      if (dropdownRef.current && !dropdownRef.current.contains(event.target as Node)) {
+      if (
+        dropdownRef.current &&
+        !dropdownRef.current.contains(event.target as Node)
+      ) {
         setIsOpen(false)
         setHighlightedIndex(-1)
       }
@@ -92,13 +100,13 @@ const AutoComplete: React.FC<AutoCompleteProps> = ({
     switch (e.key) {
       case 'ArrowDown':
         e.preventDefault()
-        setHighlightedIndex(prev => 
+        setHighlightedIndex(prev =>
           prev < filteredOptions.length - 1 ? prev + 1 : prev
         )
         break
       case 'ArrowUp':
         e.preventDefault()
-        setHighlightedIndex(prev => prev > 0 ? prev - 1 : prev)
+        setHighlightedIndex(prev => (prev > 0 ? prev - 1 : prev))
         break
       case 'Enter':
         e.preventDefault()
@@ -124,10 +132,10 @@ const AutoComplete: React.FC<AutoCompleteProps> = ({
 
   return (
     <div className={`autocomplete autocomplete--${size}`} ref={dropdownRef}>
-      <div className="autocomplete__input-wrapper">
+      <div className='autocomplete__input-wrapper'>
         <input
           ref={inputRef}
-          type="text"
+          type='text'
           className={`autocomplete__input ${disabled ? 'autocomplete__input--disabled' : ''}`}
           placeholder={placeholder}
           value={inputValue}
@@ -138,26 +146,28 @@ const AutoComplete: React.FC<AutoCompleteProps> = ({
         />
         {allowClear && inputValue && !disabled && (
           <button
-            type="button"
-            className="autocomplete__clear"
+            type='button'
+            className='autocomplete__clear'
             onClick={handleClear}
-            aria-label="Clear"
+            aria-label='Clear'
           >
             ×
           </button>
         )}
       </div>
-      
+
       {isOpen && filteredOptions.length > 0 && (
         <div
-          className="autocomplete__dropdown"
+          className='autocomplete__dropdown'
           style={{ maxHeight: maxDropdownHeight }}
         >
           {filteredOptions.map((option, index) => (
             <div
               key={option.value}
               className={`autocomplete__option ${
-                index === highlightedIndex ? 'autocomplete__option--highlighted' : ''
+                index === highlightedIndex
+                  ? 'autocomplete__option--highlighted'
+                  : ''
               }`}
               onClick={() => handleOptionSelect(option)}
               onMouseEnter={() => setHighlightedIndex(index)}

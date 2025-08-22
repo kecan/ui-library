@@ -12,7 +12,7 @@ const mockOptions: AutoCompleteOption[] = [
   { value: 'grape', label: 'Grape' },
   { value: 'honeydew', label: 'Honeydew' },
   { value: 'kiwi', label: 'Kiwi' },
-  { value: 'lemon', label: 'Lemon' }
+  { value: 'lemon', label: 'Lemon' },
 ]
 
 const countryOptions: AutoCompleteOption[] = [
@@ -25,7 +25,7 @@ const countryOptions: AutoCompleteOption[] = [
   { value: 'gb', label: 'United Kingdom' },
   { value: 'ca', label: 'Canada' },
   { value: 'au', label: 'Australia' },
-  { value: 'in', label: 'India' }
+  { value: 'in', label: 'India' },
 ]
 
 const meta: Meta<typeof AutoComplete> = {
@@ -35,30 +35,31 @@ const meta: Meta<typeof AutoComplete> = {
     layout: 'centered',
     docs: {
       description: {
-        component: 'AutoComplete component provides autocomplete functionality with keyboard navigation and customizable filtering.'
-      }
-    }
+        component:
+          'AutoComplete component provides autocomplete functionality with keyboard navigation and customizable filtering.',
+      },
+    },
   },
   argTypes: {
     size: {
       control: { type: 'select' },
-      options: ['small', 'medium', 'large']
+      options: ['small', 'medium', 'large'],
     },
     disabled: {
-      control: { type: 'boolean' }
+      control: { type: 'boolean' },
     },
     allowClear: {
-      control: { type: 'boolean' }
+      control: { type: 'boolean' },
     },
     maxDropdownHeight: {
-      control: { type: 'number' }
-    }
+      control: { type: 'number' },
+    },
   },
   args: {
     onSelect: () => {},
     onChange: () => {},
-    onSearch: () => {}
-  }
+    onSearch: () => {},
+  },
 }
 
 export default meta
@@ -67,32 +68,32 @@ type Story = StoryObj<typeof meta>
 export const Default: Story = {
   args: {
     options: mockOptions,
-    placeholder: 'Select a fruit'
-  }
+    placeholder: 'Select a fruit',
+  },
 }
 
 export const WithValue: Story = {
   args: {
     options: mockOptions,
     value: 'Apple',
-    placeholder: 'Select a fruit'
-  }
+    placeholder: 'Select a fruit',
+  },
 }
 
 export const Small: Story = {
   args: {
     options: mockOptions,
     size: 'small',
-    placeholder: 'Small size'
-  }
+    placeholder: 'Small size',
+  },
 }
 
 export const Large: Story = {
   args: {
     options: mockOptions,
     size: 'large',
-    placeholder: 'Large size'
-  }
+    placeholder: 'Large size',
+  },
 }
 
 export const Disabled: Story = {
@@ -100,8 +101,8 @@ export const Disabled: Story = {
     options: mockOptions,
     disabled: true,
     value: 'Apple',
-    placeholder: 'Disabled state'
-  }
+    placeholder: 'Disabled state',
+  },
 }
 
 export const WithClearButton: Story = {
@@ -109,24 +110,24 @@ export const WithClearButton: Story = {
     options: mockOptions,
     allowClear: true,
     value: 'Apple',
-    placeholder: 'Can be cleared'
-  }
+    placeholder: 'Can be cleared',
+  },
 }
 
 export const CustomMaxHeight: Story = {
   args: {
     options: mockOptions,
     maxDropdownHeight: 150,
-    placeholder: 'Custom dropdown height (150px)'
-  }
+    placeholder: 'Custom dropdown height (150px)',
+  },
 }
 
 export const Countries: Story = {
   args: {
     options: countryOptions,
     placeholder: 'Select a country',
-    allowClear: true
-  }
+    allowClear: true,
+  },
 }
 
 export const CustomFilter: Story = {
@@ -135,8 +136,8 @@ export const CustomFilter: Story = {
     placeholder: 'Custom filter (starts with)',
     filterOption: (inputValue: string, option: AutoCompleteOption) => {
       return option.label.toLowerCase().startsWith(inputValue.toLowerCase())
-    }
-  }
+    },
+  },
 }
 
 export const AllFeatures: Story = {
@@ -145,6 +146,6 @@ export const AllFeatures: Story = {
     placeholder: 'Full featured AutoComplete',
     size: 'medium',
     allowClear: true,
-    maxDropdownHeight: 200
-  }
+    maxDropdownHeight: 200,
+  },
 }

@@ -1,4 +1,3 @@
-/// <reference types="vitest/config" />
 import { defineConfig } from 'vitest/config'
 
 export default defineConfig({
@@ -6,6 +5,6 @@ export default defineConfig({
     globals: true,
     environment: 'jsdom',
     setupFiles: ['./vitest.setup.ts'],
-    include: ['packages/**/*.test.{ts,tsx}']
-  }
+    include: ['packages/**/*.test.{ts,tsx}'],
+  },
 })
