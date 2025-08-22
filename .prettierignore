@@ -1,0 +1,17 @@
+node_modules
+dist
+build
+.next
+.nuxt
+.vscode
+.idea
+*.log
+.env
+.env.local
+.env.production.local
+.env.development.local
+pnpm-lock.yaml
+package-lock.json
+yarn.lock
+storybook-static
+.storybook/public
