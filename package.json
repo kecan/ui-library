@@ -48,5 +48,12 @@
   "workspaces": [
     "packages/*",
     "apps/*"
-  ]
+  ],
+  "pnpm": {
+    "peerDependencyRules": {
+      "allowedVersions": {
+        "vite": "*"
+      }
+    }
+  }
 }
