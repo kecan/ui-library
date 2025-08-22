@@ -20,7 +20,8 @@
   "scripts": {
     "build": "rollup -c",
     "dev": "rollup -c -w",
-    "clean": "rimraf dist"
+    "clean": "rimraf dist",
+    "prepublishOnly": "pnpm clean && pnpm build"
   },
   "peerDependencies": {
     "react": "^18.0.0",

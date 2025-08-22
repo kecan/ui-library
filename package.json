@@ -13,7 +13,11 @@
     "format:check": "prettier --check .",
     "prepare": "husky",
     "storybook": "pnpm --filter @kc-ui/storybook dev",
-    "build-storybook": "pnpm --filter @kc-ui/storybook build"
+    "build-storybook": "pnpm --filter @kc-ui/storybook build",
+    "build": "pnpm --filter @kc-ui/components build",
+    "release": "semantic-release",
+    "publish:components": "pnpm --filter @kc-ui/components publish",
+    "prepublish": "pnpm build && pnpm test && pnpm lint"
   },
   "keywords": [],
   "author": "",
